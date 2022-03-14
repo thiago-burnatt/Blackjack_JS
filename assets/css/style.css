@@ -25,7 +25,7 @@ h1, label {
 
 input {
     font-size: 1.2rem;
-    max-width: 50%;
+    max-width: 100%;
     padding: 0.2rem;
     border-radius: 5px;
     border: none;
@@ -42,8 +42,9 @@ button {
     width: 10rem;
     height: 2rem;
     margin-top: 0.8rem;
-    border-radius: 1rem;
+    border-radius: 5px;
     font-size: 1.1rem;
+    width: 100%;
     border: none;
     transition: all 100ms ease-in-out;
 }
@@ -97,6 +98,13 @@ button:hover {
     height: 100%;
     max-width: 95%;
     border-radius: 3rem;
+}
+
+.cards-table {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    align-items: center;
 }
 
 .cards-table h1 {
