@@ -27,6 +27,12 @@ input {
     font-size: 1.2rem;
     max-width: 50%;
     padding: 0.2rem;
+    border-radius: 5px;
+    border: none;
+}
+
+input:focus {
+    outline: none;
 }
 
 button {
@@ -38,6 +44,12 @@ button {
     margin-top: 0.8rem;
     border-radius: 1rem;
     font-size: 1.1rem;
+    border: none;
+    transition: all 100ms ease-in-out;
+}
+
+button:hover {
+    background-color: #185818;
 }
 
 .betting-display, .balance-display {
@@ -47,6 +59,10 @@ button {
 .betting-elements {
     display: flex;
     flex-direction: column;
+}
+
+.betting-current h1 {
+    margin-top: 1rem;
 }
 
 .balance-elements {
@@ -88,8 +104,9 @@ button {
 }
 
 .set-betting {
-    padding: 1rem;
+    padding: 1.5rem;
     max-width: 100%;
+    margin-bottom: 1rem;
 }
 
 .set-betting-btn {

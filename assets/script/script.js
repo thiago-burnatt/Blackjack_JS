@@ -271,11 +271,15 @@ class Blackjack {
 
     // Set warning messages on screen
     setMsgScore(msg) {
-        this.scoreDiv.setAttribute('class', 'score-msg');
-        const addMsg = document.createElement('p');
-        addMsg.setAttribute('class', 'msg');
-        addMsg.innerHTML = msg;
-        this.scoreDiv.appendChild(addMsg);
+        setTimeout(() => {
+            this.scoreDiv.setAttribute('class', 'score-msg');
+            const addMsg = document.createElement('p');
+            addMsg.setAttribute('class', 'msg');
+            addMsg.innerHTML = msg;
+            this.scoreDiv.appendChild(addMsg);
+        }, 400)
+
+
     }
 
     // Shows game-over message and resets all parameters
