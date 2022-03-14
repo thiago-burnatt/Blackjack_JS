@@ -77,7 +77,7 @@ class Blackjack {
                     return;
                 }
 
-                while (this.dealerScore < 17) {
+                while (this.dealerScore < 16) {
                     this.setCardOnScreen(this.getFullCardDealer(
                         this.getCardNumber(),
                         this.getCardSuit()),
