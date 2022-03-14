@@ -102,7 +102,7 @@ class Blackjack {
         if (!this.balanceValue) {
             this.balanceValue = Number(balance.value);
         }
-        this.balanceDisplay.innerHTML = `$ ${this.balanceValue}`;
+        this.balanceDisplay.innerHTML = `$ ${this.balanceValue.toFixed(2)}`;
         const balanceInput = document.querySelector('#balance');
         balanceInput.setAttribute('disabled', true);
     };
@@ -171,7 +171,7 @@ class Blackjack {
         if (this.playerScore === 21) {
             this.balanceValue += this.bettingValue * 2;
             this.scoreMessage = `Blackjack!! You won $ ${this.bettingValue * 2}`;
-            this.balanceDisplay.innerHTML = `$ ${this.balanceValue}`;
+            this.balanceDisplay.innerHTML = `$ ${this.balanceValue.toFixed(2)}`;
 
             this.setMsgScore(this.scoreMessage);
 
@@ -183,7 +183,7 @@ class Blackjack {
         } if (this.playerScore > 21) {
             this.balanceValue -= this.bettingValue;
             this.scoreMessage = `Scored ${this.playerScore} points, you lost $ ${this.bettingValue}`;
-            this.balanceDisplay.innerHTML = `$ ${this.balanceValue}`;
+            this.balanceDisplay.innerHTML = `$ ${this.balanceValue.toFixed(2)}`;
 
             this.setMsgScore(this.scoreMessage);
 
@@ -199,7 +199,7 @@ class Blackjack {
         if (this.dealerScore > 21) {
             this.scoreMessage = `Dealer scored ${this.dealerScore}, You got $ ${this.bettingValue * 2}`;
             this.balanceValue += this.bettingValue * 2;
-            this.balanceDisplay.innerHTML = `$ ${this.balanceValue}`;
+            this.balanceDisplay.innerHTML = `$ ${this.balanceValue.toFixed(2)}`;
 
             this.setMsgScore(this.scoreMessage);
 
@@ -212,7 +212,7 @@ class Blackjack {
         if (this.dealerScore > this.playerScore) {
             this.balanceValue -= this.bettingValue;
             this.scoreMessage = `Dealer scored ${this.dealerScore}! You lost $ ${this.bettingValue}`;
-            this.balanceDisplay.innerHTML = `$ ${this.balanceValue}`;
+            this.balanceDisplay.innerHTML = `$ ${this.balanceValue.toFixed(2)}`;
             this.setMsgScore(this.scoreMessage);
             this.setBtnOff();
             this.setTimeOut();
@@ -222,7 +222,7 @@ class Blackjack {
 
         if (this.dealerScore === this.playerScore) {
             this.scoreMessage = `Even! You got $ ${this.bettingValue}`;
-            this.balanceDisplay.innerHTML = `$ ${this.balanceValue}`;
+            this.balanceDisplay.innerHTML = `$ ${this.balanceValue.toFixed(2)}`;
             this.setMsgScore(this.scoreMessage);
             this.setBtnOff();
             this.setTimeOut();
@@ -233,7 +233,7 @@ class Blackjack {
         if (this.dealerScore < this.playerScore) {
             this.scoreMessage = `Win! You got $ ${this.bettingValue * 2}`;
             this.balanceValue += this.bettingValue * 2;
-            this.balanceDisplay.innerHTML = `$ ${this.balanceValue}`;
+            this.balanceDisplay.innerHTML = `$ ${this.balanceValue.toFixed(2)}`;
             this.setMsgScore(this.scoreMessage);
             this.setBtnOff();
             this.setTimeOut();
