@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fira+Sans:wght@300&family=Fredoka+One&family=Hind+Siliguri&family=Montserrat:wght@900&family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Oswald:wght@600&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap"
+        rel="stylesheet">
+
+    <title>Blackjack</title>
+</head>
+
+<body>
+    <div id="score-id">
+    </div>
+    <aside>
+        <div class="title">
+            <img src="/assets/img/game_banner.jpg" alt="Blackjack banner">
+        </div>
+    </aside>
+
+    <section class="game-section">
+        <div class="game-table">
+            <div class="set-betting">
+                <div class="balance-elements">
+                    <label for="balance">Set your balance:</label>
+                    <input type="number" name="balance" id="balance">
+                </div>
+
+                <div class="betting-elements">
+                    <label for="betting">Set your betting:</label>
+                    <input type="number" name="betting" id="betting">
+                </div>
+
+                <div>
+                    <button class="set-betting-btn">Set</button>
+                </div>
+
+                <div>
+                    <button class="new-card-btn">New card</button>
+                </div>
+                <div>
+                    <button class="stop">Stop</button>
+                </div>
+                <div class="betting-current">
+                    <h1>Your are betting:</h1>
+                    <p class="betting-display"></p>
+                </div>
+
+                <div class="balance">
+                    <h1>Your balance:</h1>
+                    <p class="balance-display"></p>
+                </div>
+            </div>
+            <div class="cards-table">
+                <h1>Player's cards</h1>
+                <div class="cards">
+
+                </div>
+
+
+            </div>
+            <div class="cards-table">
+                <h1>Dealer's cards</h1>
+                <div class="cards-dealer">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <h1>Made by Thiago Burnatt</h1>
+    </footer>
+
+
+    <script src="/assets/script/script.js"></script>
+</body>
+
+</html>
