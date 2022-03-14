@@ -131,6 +131,8 @@ button:hover {
 }
 
 .cards img, .cards-dealer img {
+    width: 100px;
+    height: 130px;
     margin-left: -4.5rem;
     padding-top: 3rem;
 }
