@@ -83,7 +83,8 @@ class Blackjack {
                         this.getCardSuit()),
                         this.divDealerCards);
                 }
-                this.stopRound();
+                setTimeout(() => {this.stopRound()}, 800);
+                
                 this.setBettingBtn.setAttribute('disabled', true);
                 this.setTimeOut();
                 this.restart();
