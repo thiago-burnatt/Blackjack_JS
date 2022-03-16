@@ -53,8 +53,17 @@ button:hover {
     background-color: #185818;
 }
 
+.exit {
+    background-color: rgb(199, 32, 32);
+}
+
+.exit:hover {
+    background-color:rgb(145, 26, 26);
+}
+
 .betting-display, .balance-display {
     font-size: 25px;
+    margin-bottom: 20px;
 }
 
 .betting-elements {
@@ -153,4 +162,31 @@ button:hover {
     text-align: center;
     text-justify: center;
 }
+
+/* .score-msg button {
+    position: relative;
+    top: 50%; 
+    text-align: center;
+    text-justify: center;
+    
+} */
+
+.div-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.exit-confirm {
+    background-color: rgb(199, 32, 32);
+}
+
+.exit-confirm:hover {
+   background-color: rgb(145, 26, 26);
+}
+
+
+
 

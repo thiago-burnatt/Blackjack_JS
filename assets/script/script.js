@@ -88,6 +88,30 @@ class Blackjack {
                 this.setTimeOut();
                 this.restart();
             }
+
+            if (el.classList.contains('exit')) {
+                if (!this.balanceInput.value || !this.bettingInput.value) {
+                    this.setMsgScore('Please set balance and betting values first');
+                    this.setTimeOut();
+                    return;
+                }
+                this.confirmAction('Are you sure?');
+            }
+
+            if (el.classList.contains('exit-confirm')) {
+                this.exitGame();
+                this.restart();
+                this.resetDisplay();
+                this.resetScores();
+                this.resetBalance();
+                this.setTimeOut();
+            }
+
+            if (el.classList.contains('exit-not-confirm')) {
+                this.scoreDiv.removeAttribute('class');
+                const confirmDiv = document.getElementsByClassName('msg');
+                confirmDiv[0].remove();
+            }
         });
     };
 
@@ -118,7 +142,7 @@ class Blackjack {
         if (!this.balanceInput) return;
 
         this.bettingValue = Number(betting.value);
-        this.bettingDisplay.innerHTML = `$ ${this.bettingValue}`;
+        this.bettingDisplay.innerHTML = `$ ${this.bettingValue.toFixed(2)}`;
     }
 
     // Return a number between 1 and 13
@@ -246,6 +270,21 @@ class Blackjack {
         this.playerScore = 0;
         this.dealerScore = 0;
     }
+
+    resetBalance() {
+        this.bettingValue = 0;
+        this.balanceValue = 0;
+    }
+
+
+    resetDisplay() {
+        this.balanceInput.removeAttribute('disabled');
+        this.balanceDisplay.innerHTML = '';
+        this.bettingDisplay.innerHTML = '';
+        this.balanceInput.value = '';
+        this.bettingInput.value = '';
+    }
+
     // Button disable to prevent player getting new cards after match ends
     setBtnOff() {
         this.setBettingBtn.setAttribute('disabled', true);
@@ -278,16 +317,39 @@ class Blackjack {
             addMsg.innerHTML = msg;
             this.scoreDiv.appendChild(addMsg);
         }, 400)
-
-
     }
+
+    confirmAction(msg) {
+        this.scoreDiv.setAttribute('class', 'score-msg');
+        const addMsg = document.createElement('p');
+        addMsg.setAttribute('class', 'msg');
+        addMsg.innerHTML = msg;
+        this.scoreDiv.appendChild(addMsg);
+        const divBtn = document.createElement('div');
+        divBtn.setAttribute('class', 'div-buttons');
+        addMsg.appendChild(divBtn);
+        const button1 = document.createElement('button');
+        button1.innerHTML = 'Yes';
+        button1.setAttribute('class', 'exit-confirm');
+        divBtn.appendChild(button1);
+        const button2 = document.createElement('button');
+        button2.innerHTML = 'No';
+        button2.setAttribute('class', 'exit-not-confirm');
+        divBtn.appendChild(button2);
+    }
+
 
     // Shows game-over message and resets all parameters
     restart() {
         if (!this.balanceValue) {
+
             setTimeout(() => {
-                this.setMsgScore('Game-over! <br> Reload the page to start a new game')
+                this.confirmAction(`Game over! <br> Do you want play again?`);
             }, 3000);
+
+            // setTimeout(() => {
+            //     this.setMsgScore('Game-over! <br> Reload the page to start a new game')
+            // }, 3000);
 
             this.balanceInput.removeAttribute('disabled');
             this.balanceDisplay.innerHTML = '';
@@ -296,6 +358,26 @@ class Blackjack {
             this.bettingInput.value = '';
         }
     }
+
+    exitGame() {
+        const finalBalance = this.balanceValue - (Number(this.balanceInput.value));
+        if (this.balanceValue > Number(this.balanceInput.value)) {
+            this.setMsgScore(`Congratulations, you earned $ ${finalBalance}!`);
+            return;
+        }
+
+        if (this.balanceValue < Number(this.balanceInput.value)) {
+            this.setMsgScore(`Too bad, you lost $ ${finalBalance}`);
+            return;
+        }
+
+        if (this.balanceValue === Number(this.balanceInput.value)) {
+            this.setMsgScore('You ended the game with same balance than the start!');
+            return;
+        }
+
+    }
+
 }
 
 const game = new Blackjack();
