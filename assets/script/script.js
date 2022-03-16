@@ -347,11 +347,7 @@ class Blackjack {
             setTimeout(() => {
                 this.confirmAction(`Game over! <br> Do you want play again?`);
             }, 3000);
-
-            // setTimeout(() => {
-            //     this.setMsgScore('Game-over! <br> Reload the page to start a new game')
-            // }, 3000);
-
+            
             this.balanceInput.removeAttribute('disabled');
             this.balanceDisplay.innerHTML = '';
             this.bettingDisplay.innerHTML = '';
@@ -368,7 +364,12 @@ class Blackjack {
         }
 
         if (this.balanceValue < Number(this.balanceInput.value)) {
-            this.setMsgScore(`Too bad, you lost $ ${finalBalance}`);
+            this.setMsgScore(`Too bad, you lost $ ${finalBalance * -1}`);
+            return;
+        }
+
+        if (!this.bettingInput.value || !this.balanceInput.value) {
+            this.setMsgScore('Starting a new game...');
             return;
         }
 
